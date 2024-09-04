@@ -1,4 +1,4 @@
-import { twoFer } from "./two-fer.ts";
+import { twoFer } from "./two-fer";
 import { describe, it, expect } from "bun:test";
 
 describe("TwoFer", () => {
