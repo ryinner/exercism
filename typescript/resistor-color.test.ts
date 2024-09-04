@@ -1,22 +1,22 @@
 import { colorCode, COLORS } from "./resistor-color";
-import { expect, test, describe } from "bun:test";
+import { expect, it, describe } from "bun:test";
 
 describe("color code", () => {
-  test("Black", () => {
+  it("Black", () => {
     expect(colorCode("black")).toEqual(0);
   });
 
-  test("white", () => {
+  it("white", () => {
     expect(colorCode("white")).toEqual(9);
   });
 
-  test("Orange", () => {
+  it("Orange", () => {
     expect(colorCode("orange")).toEqual(3);
   });
 });
 
 describe("Colors", () => {
-  test("returns all colors", () => {
+  it("returns all colors", () => {
     expect(COLORS).toEqual([
       "black",
       "brown",
