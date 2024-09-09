@@ -12,6 +12,7 @@ export class Anagram {
       }, new Map());
   }
 
+  // Alternative variant: Sort original characters and sort every potential characters, and compare them
   public matches(...potentials: string[]): string[] {
     return potentials.filter((potential) => {
       const potentialToLower = potential.toLowerCase();
