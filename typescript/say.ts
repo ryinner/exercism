@@ -21,6 +21,21 @@ const DIGITS_TO_WORDS = [
   "nineteen",
 ];
 
+const DIGITS_TO_WORDS_TENS = [
+  "",
+  "ten",
+  "twenty",
+  "thirty",
+  "forty",
+  "fifty",
+  "sixty",
+  "seventy",
+  "eighty",
+  "ninety",
+];
+
+const WORDS = ["", "thousand", "million", "billion"];
+
 function tokenizeNumber(number: number) {
   const groups = number.toString().split("").reverse();
   const groupsCount = Math.ceil(groups.length / 3);
@@ -40,12 +55,48 @@ export function sayInEnglish(number: number): string {
   const stack = tokenized.map<string>((group, index) => {
     let digitsAsWords = "";
     const firstDigit = Number(group[0]);
-    if (group.length === 3 && group[2] !== "0") {
+    const secondDigit = Number(group[1] ?? 0);
+    const thirdDigit = Number(group[2]);
+    if (!Number.isNaN(thirdDigit) && thirdDigit > 0) {
       const lastDigit = Number(group[2]);
-      digitsAsWords += `${DIGITS_TO_WORDS[lastDigit]} `;
+      digitsAsWords += `${DIGITS_TO_WORDS[lastDigit]} hundred `;
     }
-    return digitsAsWords;
+    if (!Number.isNaN(secondDigit)) {
+      switch (secondDigit) {
+        case 1:
+          digitsAsWords += `${DIGITS_TO_WORDS[secondDigit * 10 + firstDigit]}`;
+          break;
+        case 0:
+          if (
+            firstDigit > 0 ||
+            (digitsAsWords.length === 0 && tokenized.length === 1)
+          ) {
+            digitsAsWords += `${DIGITS_TO_WORDS[firstDigit]}`;
+          }
+          break;
+        default:
+          digitsAsWords += `${DIGITS_TO_WORDS_TENS[secondDigit]}`;
+          if (firstDigit !== 0) {
+            digitsAsWords += `-${DIGITS_TO_WORDS[firstDigit]}`;
+          }
+          break;
+      }
+    }
+    return digitsAsWords.trim();
   });
 
-  return "";
+  return stack
+    .reduceRight((accumulator, digits, index) => {
+      if (digits.length > 0) {
+        accumulator += `${digits} `;
+        const word = index;
+
+        if (WORDS[word]) {
+          accumulator += `${WORDS[word]} `;
+        }
+      }
+
+      return accumulator;
+    }, "")
+    .trim();
 }
