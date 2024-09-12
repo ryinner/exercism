@@ -5,7 +5,7 @@ export function transpose(strings: string[]): string[] {
   return strings.reduce<string[]>((transposed, string, stringIndex) => {
     const [stringWithMaxCharacter] = strings
       .slice(stringIndex)
-      .toSorted((a, b) => b.length - a.length);
+      .sort((a, b) => b.length - a.length);
     const maxCharacterStringIndex = strings.indexOf(stringWithMaxCharacter);
     const { length: maxCharactersInString } = stringWithMaxCharacter;
     if (
