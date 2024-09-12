@@ -16,11 +16,9 @@ export class Series {
       return [[...this._series].map(Number)];
     }
 
-    let i = 0;
     const result = [];
-    while (i < tokens) {
+    for (let i = 0; i < tokens; i++) {
       result.push([...this._series.slice(i, i + sliceLength)].map(Number));
-      i++;
     }
 
     return result;
