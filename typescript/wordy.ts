@@ -15,9 +15,6 @@ function tokenize(question: string): string[] {
 }
 
 export function answer(question: string): number {
-  if (!question.startsWith("What is")) {
-    throw new Error("Unknown operation");
-  }
   const tokens = tokenize(question);
   let previousToken: string | number | undefined;
   return tokens.reduce((result, token, index) => {
