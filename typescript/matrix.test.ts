@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { Matrix } from "./matrix";
 
 describe("Matrix", () => {

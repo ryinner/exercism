@@ -1,5 +1,5 @@
 import { twoFer } from "./two-fer";
-import { describe, it, expect } from "bun:test";
+import { describe, it, expect } from "@jest/globals";
 
 describe("TwoFer", () => {
   it("no name given", () => {

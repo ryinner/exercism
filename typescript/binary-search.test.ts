@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { find } from "./binary-search";
 
 describe("Binary Search", () => {

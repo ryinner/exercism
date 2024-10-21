@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { encode, decode } from "./run-length-encoding";
 
 describe("run-length encode a string", () => {

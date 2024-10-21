@@ -1,4 +1,4 @@
-import { expect, it, describe, beforeEach } from "bun:test";
+import { expect, it, describe, beforeEach } from "@jest/globals";
 import { GradeSchool } from "./grade-school";
 
 describe("School", () => {

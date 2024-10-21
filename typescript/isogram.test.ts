@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { isIsogram } from "./isogram";
 
 describe("Check if the given string is an isogram", () => {

@@ -1,4 +1,4 @@
-import { beforeEach, afterEach, expect, it, describe } from "bun:test";
+import { beforeEach, afterEach, expect, it, describe } from "@jest/globals";
 import { Robot } from "./robot-name";
 
 const areSequential = (name1: string, name2: string): boolean => {

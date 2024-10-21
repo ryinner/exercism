@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { translate } from "./protein-translation";
 
 describe("Translate input RNA sequences into proteins", () => {

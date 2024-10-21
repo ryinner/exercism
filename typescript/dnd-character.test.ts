@@ -1,4 +1,4 @@
-import { expect, it, describe } from "bun:test";
+import { expect, it, describe } from "@jest/globals";
 import { DnDCharacter } from "./dnd-character";
 
 describe("Ability modifier", () => {

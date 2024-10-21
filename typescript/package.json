@@ -5,9 +5,11 @@
   "author": "ryinner",
   "license": "ISC",
   "scripts": {
-    "test": "bun test"
+    "test": "jest"
   },
   "dependencies": {
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.5.4"
   },
   "packageManager": "bun@1.1.18",
